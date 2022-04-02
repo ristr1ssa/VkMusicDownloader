@@ -50,12 +50,9 @@ class VkAudio:
         async with aiohttp.ClientSession() as session:
             async with aiohttp.ClientSession() as session:
                 async with session.get(link) as resp:
-                    await session.close()
-                    await asyncio.sleep(0.1)
-                    
-                    ans = resp.content
-                    ans = ans.read_nowait(n = -1)
+                    ans = await resp.content.read()
                     ans = io.BytesIO(ans)
+                    await session.close()
                     return ans
 
         
