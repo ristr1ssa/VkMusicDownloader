@@ -62,4 +62,4 @@ class VkAudio:
                 title = await title.json()
                 title = title['response'][0]['title']
 
-        return title
+            return title
