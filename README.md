@@ -8,16 +8,19 @@
 
 ## Installation
 
-* Clone it into your project directory
-   `>>> git clone https://github.com/ristr1ssa/VkMusicDownloader`
-* Import 
-<p align="center"><img src="https://sun9-70.userapi.com/s/v1/if2/KZ-3pPBchwLNkVg8R5suWHGqLqpZ3LMHP1Z9uvXWXMZf0qvvmgWuETYp1uYZzDSNE_Gbqz5iilCgXst5vIrpshJA.jpg?size=350x65&quality=96&type=album" alt="Class Import" width="1000px" /></p>
+1) Clone <b>VkMusicDownloader</b> into your project directory:
+
+	`>>> git clone https://github.com/ristr1ssa/VkMusicDownloader`
+2) Import via:
+
+	`>>> from VkMusicDownloader.api import VkAudio`
+
+<p align="left"><img src="https://psv4.vkuseraudio.net/s/v1/d/_J3ktt2mWQWJH88WNGHis4RdPA7B6OYbtTpoB9Vwgkl5M33Uvgd3gisROA6zpmE0ymRfuiNm2r9G2HrAO-1NSjHj68-GTCK45bdNH8joI6KCp4YV_nJGDA/Screenshot_1.jpg" alt="Import" width="700px" /></p>
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the <b>MIT</b> License. See `LICENSE` for more information.
 
-##Feedback
+## Feedback
 
-> `<a href="https://t.me/DmMeBaby_bot?start=GitHubVkMusic">Telegram</a>` or report an issue
--
+* Contact me via <a href="https://t.me/DmMeBaby_bot?start=GitHubVkMusic"><b>Telegram</b></a> or report an issue
