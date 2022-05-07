@@ -1,11 +1,14 @@
 import aiohttp
 import io
 
+API_V = 5.130
+
 class VkAudio:
     def __init__(self, token):
         """
         token: [str] VkAdmin token (get via https://vkhost.github.io/)
         """
+        
         self.token = token
 
     
@@ -14,11 +17,11 @@ class VkAudio:
         owner_id: int = owner_id
         count: int = count of ids you want to get.
 
-        returns: ['ownerId_audioId=title']
+        returns: list['ownerId_audioId=title']
         """
         
         async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.vk.com/method/audio.get?owner_id={owner_id}&count={count}&access_token={self.token}&v=5.130') as resp_id:
+            async with session.get(f'https://api.vk.com/method/audio.get?owner_id={owner_id}&count={count}&access_token={self.token}&v={API_V}') as resp_id:
                 resp_id = await resp_id.json()
                 resp_id = resp_id['response']['items']
                 ans = [f"{resp_id[elem]['owner_id']}_{resp_id[elem]['id']}={resp_id[elem]['title']}" for elem in range(len(resp_id))]
@@ -27,24 +30,26 @@ class VkAudio:
     
     async def get_urlById(self, ids_list: list[str]) -> list[str]:
         """
-        ids_list: list[str] = list with audio ids (can get by VkAudio.get_audioId() method)
+        ids_list: list[str] = list with audio ids (get via VkAudio.get_audioId() method)
 
-        returns: list with links
+        returns: list['links']
         """
+       
         ans = []
         async with aiohttp.ClientSession() as session:
             for id in ids_list:
-                async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v=5.130') as resp_link:
+                async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v={API_V}') as resp_link:
                     resp_link = await resp_link.json()
                     ans.append(resp_link['response'][0]['url'])
             return ans
         
     async def byte_download(self, link: str) -> str:
         """
-        link: list[str]
+        link: list[str] = audio link
 
-        returns: audio in bytes      
+        returns: IO.Bytesio object     
         """
+        
         async with aiohttp.ClientSession() as session:
             async with session.get(link) as resp:
                 ans = await resp.content.read()
@@ -55,10 +60,11 @@ class VkAudio:
         """
         id: str = ownerId_audioId
 
-        returns: title of the audio
+        returns: str[title]
         """
+        
         async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v=5.130') as title:
+            async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v={API_V}') as title:
                 title = await title.json()
                 title = title['response'][0]['title']
 
