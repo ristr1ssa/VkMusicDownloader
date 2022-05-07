@@ -15,8 +15,6 @@
 
 	`>>> from VkMusicDownloader.api import VkAudio`
 
-<p align="left"><img src="https://psv4.vkuseraudio.net/s/v1/d/_J3ktt2mWQWJH88WNGHis4RdPA7B6OYbtTpoB9Vwgkl5M33Uvgd3gisROA6zpmE0ymRfuiNm2r9G2HrAO-1NSjHj68-GTCK45bdNH8joI6KCp4YV_nJGDA/Screenshot_1.jpg" alt="Import" width="700px" /></p>
-
 ## License
 
 Distributed under the <b>MIT</b> License. See `LICENSE` for more information.
