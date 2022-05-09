@@ -1,9 +1,10 @@
 import aiohttp
 import io
 
-API_V = 5.130
 
 class VkAudio:
+    API_V = 5.130
+    
     def __init__(self, token):
         """
         token: [str] VkAdmin token (get via https://vkhost.github.io/)
