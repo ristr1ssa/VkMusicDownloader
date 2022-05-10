@@ -40,7 +40,7 @@ class VkAudio:
         api_resp = await VkAudio.__make_request(self, method='audio.get', params=params)
         
         api_resp = api_resp['response']['items']
-        ans = [f"{api_resp[elem]['owner_id']}_{api_resp[elem]['id']}={api_resp[elem]['title']}" for elem in range(len(api_resp))]
+        ans = [ f"{api_resp[elem]['owner_id']}_{api_resp[elem]['id']}={api_resp[elem]['title']}" for elem in range(len(api_resp)) ]
         
         return ans
     
@@ -56,7 +56,9 @@ class VkAudio:
             params = f"audios={id}"
             resp_link = await VkAudio.__make_request(self, method='audio.getById', params=params)
             
-            ans.append(resp_link['response'][0]['url'])
+            ans.append(
+                resp_link['response'][0]['url']
+                )
         
         return ans
         
