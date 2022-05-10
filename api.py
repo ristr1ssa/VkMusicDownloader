@@ -22,7 +22,7 @@ class VkAudio:
         """
         
         async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.vk.com/method/audio.get?owner_id={owner_id}&count={count}&access_token={self.token}&v={API_V}') as resp_id:
+            async with session.get(f'https://api.vk.com/method/audio.get?owner_id={owner_id}&count={count}&access_token={self.token}&v={self.API_V}') as resp_id:
                 resp_id = await resp_id.json()
                 resp_id = resp_id['response']['items']
                 ans = [f"{resp_id[elem]['owner_id']}_{resp_id[elem]['id']}={resp_id[elem]['title']}" for elem in range(len(resp_id))]
@@ -39,7 +39,7 @@ class VkAudio:
         ans = []
         async with aiohttp.ClientSession() as session:
             for id in ids_list:
-                async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v={API_V}') as resp_link:
+                async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v={self.API_V}') as resp_link:
                     resp_link = await resp_link.json()
                     ans.append(resp_link['response'][0]['url'])
             return ans
@@ -65,7 +65,7 @@ class VkAudio:
         """
         
         async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v={API_V}') as title:
+            async with session.get(f'https://api.vk.com/method/audio.getById?audios={id}&access_token={self.token}&v={self.API_V}') as title:
                 title = await title.json()
                 title = title['response'][0]['title']
 
