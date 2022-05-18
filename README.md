@@ -15,10 +15,10 @@
 
 	`>>> from VkMusicDownloader.api import VkAudio`
 
+## Feedback
+
+* Join our Telegram <a href="https://t.me/VkMusic_help"><b>chat</b></a> or report an issue
+
 ## License
 
 Distributed under the <b>MIT</b> License. See `LICENSE` for more information.
-
-## Feedback
-
-* Contact me via <a href="https://t.me/DmMeBaby_bot?start=GitHubVkMusic"><b>Telegram</b></a> or report an issue
